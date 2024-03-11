@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 import "./App.css";
 import useFirestore from "./hooks/useFirestore";
@@ -15,12 +15,6 @@ function App() {
     messages: [],
   });
   const { sendMessage, getMessages } = useFirestore();
-  useEffect(() => {
-    console.log({ messages });
-  }, [messages]);
-  useEffect(() => {
-    console.log({ response });
-  }, [response]);
   useEffect(() => {
     getMessages(setMessages);
   }, []);
@@ -77,8 +71,14 @@ function App() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setMessageInput(e.target.value);
               }}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === "Enter" && messageInput) {
+                  sendMessage(name, messageInput, setResponse);
+                  setMessageInput("");
+                }
+              }}
             />
-
+            {response.errorOccured && <p>Error Occured</p>}
             <button
               className="send-btn"
               disabled={!messageInput}
