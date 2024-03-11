@@ -83,8 +83,8 @@ function App() {
               className="send-btn"
               disabled={!messageInput}
               onClick={async () => {
-                await sendMessage(name, messageInput, setResponse);
                 setMessageInput("");
+                await sendMessage(name, messageInput, setResponse);
               }}
             >
               Send
