@@ -41,6 +41,7 @@ function App() {
             </label>
           </div>
           <button
+            disabled={!name}
             className="name-form-button"
             onClick={() => {
               setShowChat(true);
