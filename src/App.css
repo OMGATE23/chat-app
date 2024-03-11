@@ -1,42 +1,86 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.message-display {
+  outline: 1px solid black;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.message-container {
+  max-height: 60%;
+  height: 60%;
+  overflow-y: scroll;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: end;
 }
 
-.card {
-  padding: 2em;
+.messages {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: fit-content;
+
+  gap: 1rem;
+  width: 300px;
 }
 
-.read-the-docs {
-  color: #888;
+.message {
+  position: relative;
+  left: 0;
+  background-color: #2563eb;
+  width: 250px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: white
+}
+
+.message.self {
+  margin-left: 25px;
+  background-color: #facc15;
+}
+
+.message-name {
+  font-size: 0.6rem;
+}
+
+.message-input-container {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+.message-input {
+  display: block;
+  padding: 0.5rem;
+  width: 100%;
+  outline: 1px solid #e5e5e5;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border: none;
+}
+
+.send-btn {
+  padding: 0.5rem 1rem;
+  background-color: #4ade80;
+  outline: 1px solid #4ade80;
+  border: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.send-btn:disabled {
+  background-color: #bbf7d0;
+  outline: 1px solid #bbf7d0;
 }
