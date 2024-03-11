@@ -35,7 +35,6 @@ export default function useFirestore() {
         querySnapshot.forEach((doc) => {
           messages.push({ id: doc.id, ...doc.data() });
         });
-        console.log(querySnapshot);
         setMessages({ errorOccured: false, messages });
       });
 
